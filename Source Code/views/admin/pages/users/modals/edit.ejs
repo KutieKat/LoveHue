@@ -1,0 +1,143 @@
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Cập nhật thông tin về người dùng</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                
+                <div class="modal-body">
+                    <form>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label>Ảnh đại diện</label>
+                                    <div class="image-preview">
+                                        <img id="editModalAvatar" class="image-uploader__image" src="/images/image-not-found.jpg" />
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div class="col-md-10">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label>Mã người dùng</label>
+                                                    <input id="editModalId" class="form-control" type="text" placeholder="Mã của người dùng" disabled />
+                                                </div>
+            
+                                                <div class="form-group">
+                                                    <label>Tên đăng nhập (*)</label>
+                                                    <input id="editModalUsername" class="form-control" type="text" placeholder="Tên đăng nhập của người dùng" disabled />
+                                                </div>
+            
+                                                <div class="form-group">
+                                                    <label>Tên đầy đủ</label>
+                                                    <input id="editModalFullName" class="form-control" type="text" placeholder="Tên đầy đủ của người dùng" disabled />
+                                                </div>
+                                            </div>
+    
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Giới tính</label>
+                                                    <select id="editModalGender" class="form-control" disabled>
+                                                        <option value="0">Nam</option>
+                                                        <option value="1">Nữ</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Ngày sinh</label>
+                                                    <input id="editModalDateOfBirth" type="text" class="form-control" placeholder="Ngày sinh của người dùng" disabled />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+    
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label>Địa chỉ email (*)</label>
+                                                    <input id="editModalEmail" class="form-control" type="text" placeholder="Địa chỉ email của người dùng" disabled />
+                                                </div>
+                                            </div>
+    
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label>Số điện thoại</label>
+                                                    <input id="editModalPhone" class="form-control" type="text" placeholder="Số điện thoại của người dùng" disabled />
+                                                </div>
+                                            </div>
+    
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Phân quyền</label>
+                                                    <select id="editModalRole" class="form-control" name="role">
+                                                        <option value="0">Người dùng</option>
+                                                        <option value="1">Quản trị viên</option>
+                                                        <option value="2">Biên tập viên</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+    
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Trạng thái</label>
+                                                    <select id="editModalIsActive" class="form-control" name="is_active">
+                                                        <option value="0">Chưa hiển thị</option>
+                                                        <option value="1">Đã hiển thị</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+    
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Ngày tạo</label>
+                                                    <input id="editModalCreatedAt" class="form-control" type="text" placeholder="Ngày tạo của người dùng" disabled />
+                                                </div>
+                                            </div>
+    
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Ngày cập nhật</label>
+                                                    <input id="editModalUpdatedAt" class="form-control" type="text" placeholder="Ngày cập nhật của người dùng" disabled />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Địa chỉ</label>
+                                            <input id="editModalAddress" class="form-control" type="text" placeholder="Địa chỉ của người dùng" disabled />
+                                        </div>
+                                    </div>
+    
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Mô tả ngắn</label>
+                                            <textarea id="editModalBio" class="form-control" placeholder="Mô tả ngắn về người dùng" disabled></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="text-right">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                            <button type="submit" class="btn btn-primary">Cập nhật</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>

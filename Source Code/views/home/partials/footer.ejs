@@ -1,0 +1,120 @@
+        <% if (typeof is_home !== 'undefined' && is_home === true) { %>
+            <section class="benefits">
+                <div class="container">
+                    <h3 class="benefits__title">LoveHue mang đến cho bạn những gì?</h3>
+                    <div class="benefits__splitter"></div>
+
+                    <div class="row">
+                        <% benefits.forEach(function(benefit) { %>
+                            <div class="col-md-4">
+                                <div class="benefit">
+                                    <img src="/<%= benefit['icon_file_name'] %>" alt="<%= benefit['name'] %>" class="benefit__icon" />
+                                    <h4 class="benefit__name"><%= benefit['name'] %></h4>
+                                    <p class="benefit__description"><%= benefit['description'] %></p>
+                                </div>
+                            </div>
+                        <% }) %>
+                    </div>
+                </div>
+            </section>
+        <% } %>
+        
+        <div class="sub-navigation" style="margin-top: <%= typeof is_home === 'undefined' ? '52px' : '' %>">
+            <div class="container text-center">
+                <ul class="sub-navigation__list">
+                    <% typeof post_categories !== 'undefined' && post_categories.forEach(function(postCategory) { %>
+                        <li class="sub-navigation__list-item">
+                            <a href="/chuyen-muc/<%= postCategory.seo_slug %>"><%= postCategory.name %></a>
+                        </li>
+                    <% }) %>
+                </ul>
+            </div>
+        </div>
+
+        <footer class="main-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <a href="/"><img src="/<%= typeof settings['logo_file_name'] !== 'undefined' ? settings['logo_file_name'] : 'images/logo.png' %>" alt="LoveHue Logo" class="main-footer__logo" /></a>
+                        <p class="main-footer__slogan"><%= typeof settings['slogan'] !== 'undefined' ? settings['slogan'] : '' %></p>
+                        <p class="main-footer__popup-toggler" data-toggle="modal" data-target="#aboutModal">Đồ án môn học Phát triển, vận hành, bảo trì phần mềm (SE109.J21.PMCL) - Nhóm 1</p>
+                        
+                        <ul class="main-footer__social-networks">
+                            <li class="main-footer__social-network main-footer__social-network--facebook" data-toggle="tooltip" data-placement="top" title="<%= settings['title'] %> trên Facebook">
+                                <a href="<%= typeof settings['facebook_url'] !== 'undefined' ? settings['facebook_url'] : '#' %>" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            </li>
+
+                            <li class="main-footer__social-network main-footer__social-network--twitter" data-toggle="tooltip" data-placement="top" title="<%= settings['title'] %> trên Twitter">
+                                <a href="<%= typeof settings['twitter_url'] !== 'undefined' ? settings['twitter_url'] : '#' %>" target="_blank"><i class="fab fa-twitter"></i></a>
+                            </li>
+                            
+                            <li class="main-footer__social-network main-footer__social-network--instagram" data-toggle="tooltip" data-placement="top" title="<%= settings['title'] %> trên Instagram">
+                                <a href="<%= typeof settings['instagram_url'] !== 'undefined' ? settings['instagram_url'] : '#' %>" target="_blank"><i class="fab fa-instagram"></i></a>
+                            </li>
+
+                            <li class="main-footer__social-network main-footer__social-network--pinterest" data-toggle="tooltip" data-placement="top" title="<%= settings['title'] %> trên Pinterest">
+                                <a href="<%= typeof settings['pinterest_url'] !== 'undefined' ? settings['pinterest_url'] : '#' %>" target="_blank"><i class="fab fa-pinterest-p"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <div class="modal fade" id="aboutModal" tabindex="-1" role="dialog" aria-labelledby="aboutModalTitle" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Danh sách các thành viên trong nhóm đồ án - Nhóm 1</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    
+                    <div class="modal-body text-center">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <img src="/images/tiendung.png" class="about-modal__member-avatar" />
+                                <span class="about-modal__member-name">Nguyễn Tiến Dũng</span>
+                                <span class="about-modal__member-info">16520259 - PMCL2016.1</span>
+                            </div>
+
+                            <div class="col-md-3">
+                                <img src="/images/viettien.jpg" class="about-modal__member-avatar" />
+                                <span class="about-modal__member-name">Nguyễn Việt Tiến</span>
+                                <span class="about-modal__member-info">16521233 - PMCL2016.3</span>
+                            </div>
+
+                            <div class="col-md-3">
+                                <img src="/images/nhattien.jpg" class="about-modal__member-avatar" />
+                                <span class="about-modal__member-name">Hồ Nguyễn Nhật Tiến</span>
+                                <span class="about-modal__member-info">16521218 - PMCL2016.3</span>
+                            </div>
+
+                            <div class="col-md-3">
+                                <img src="/images/thimot.png" class="about-modal__member-avatar" />
+                                <span class="about-modal__member-name">Võ Thị Một</span>
+                                <span class="about-modal__member-info">16520756 - PMCL2016.2</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <a href="#top" id="btnBackToTop"><i class="fas fa-arrow-circle-up"></i></a>
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+        <script src="https://momentjs.com/downloads/moment.js"></script>
+        <script src="/js/home.js"></script>
+    </body>
+</html>

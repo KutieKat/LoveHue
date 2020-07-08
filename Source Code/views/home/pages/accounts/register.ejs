@@ -1,0 +1,48 @@
+<% include ../../partials/auth-header %>
+
+<main class="mt-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <form action="/tai-khoan/dang-ky" method="post" autocomplete="off" >
+                    <header class="text-center">
+                        <h3 class="form-title">Đăng ký tài khoản</h3>
+                        <p class="form-description">Đăng ký ngay để có thể sử dụng nhiều chức năng thú vị của LoveHue</p>
+
+                        <% include messages %>
+                    </header>
+
+                    <div class="form-group">
+                        <label>Tên đăng nhập</label>
+                        <input class="form-control" type="text" placeholder="Nhập tên đăng nhập của bạn" name="username" value="<%= typeof username != 'undefined' ? username : '' %>" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Địa chỉ email</label>
+                        <input class="form-control" type="email" placeholder="Nhập địa chỉ email của bạn" name="email" value="<%= typeof email != 'undefined' ? email : '' %>" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Mật khẩu</label>
+                        <input class="form-control" type="password" placeholder="Nhập mật khẩu của bạn" name="password" value="<%= typeof password != 'undefined' ? password : '' %>" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Xác nhận lại mật khẩu</label>
+                        <input class="form-control" type="password" placeholder="Nhập lại mật khẩu của bạn" name="password_confirmation" value="<%= typeof password_confirmation != 'undefined' ? password_confirmation : '' %>" required />
+                    </div>
+
+                    <div>
+                        <button class="btn btn-block" type="submit">Đăng ký tài khoản</button>
+                    </div>
+                </form>
+
+                <div class="messages text-center">
+                    <p>Bạn đã có tài khoản? <a href="/tai-khoan/dang-nhap">Đăng nhập</a> ngay</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<% include ../../partials/auth-footer %>

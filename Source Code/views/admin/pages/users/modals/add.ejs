@@ -1,0 +1,60 @@
+<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addModalLongTitle">Thêm người dùng mới</h5>
+                <button id="addModalCloseButton" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            
+            <div class="modal-body">
+                <form action="/bang-dieu-khien/nguoi-dung" method="post">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Tên đăng nhập (*)</label>
+                                <input id="addModalUsername" class="form-control" type="text" placeholder="Tên đăng nhập của người dùng" name="username" required />
+                                <div class="invalid-feedback"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Địa chỉ email (*)</label>
+                                <input id="addModalEmail" class="form-control" type="text" placeholder="Địa chỉ email của người dùng" name="email" required />
+                                <div class="invalid-feedback"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Mật khẩu (*)</label>
+                                <input id="addModalPassword" class="form-control" type="password" name="password" placeholder="Mật khẩu của người dùng" required />
+                                <div class="invalid-feedback"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Xác nhận lại mật khẩu (*)</label>
+                                <input id="addModalPasswordConfirmation" class="form-control" type="password" name="password_confirmation" placeholder="Mật khẩu xác nhận của người dùng" required />
+                                <div class="invalid-feedback"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="form-group">
+                                    <label>Phân quyền</label>
+                                    <select id="addModalRole" class="form-control" name="role">
+                                        <option value="0">Người dùng</option>
+                                        <option value="1">Quản trị viên</option>
+                                        <option value="2">Biên tập viên</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text-right">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" style="margin-right: 6px;">Đóng</button>
+                        <button type="submit" class="btn btn-primary">Thêm mới</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

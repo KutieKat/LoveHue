@@ -1,0 +1,85 @@
+<% include ../../partials/header %>
+
+<main class="main-body mt-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="list-group">
+                    <a class="list-group-item list-group-item-action header">Quản lý tài khoản</a>
+                    <a href="/tai-khoan" class="list-group-item list-group-item-action active">Thông tin tài khoản</a>
+                    <a href="/tai-khoan/thay-doi-mat-khau" class="list-group-item list-group-item-action">Thay đổi mật khẩu</a>
+                </div>
+            </div>
+            
+            <div class="col-md-9">
+                <form action="/tai-khoan/dang-nhap" method="post">
+                    <header class="form-header">
+                        <div class="row">
+                            <div class="col-md-12 pl-4">
+                                <h3>Thông tin tài khoản</h3>
+                            </div>
+                        </div>
+
+                    </header>
+
+                    <div class="row">
+                        <div class="col-md-9 pl-4 pr-3">
+                            <div class="form-group">
+                                <label>Tên đăng nhập</label>
+                                <input class="form-control" type="text" placeholder="Nhập tên đăng nhập của bạn" value="<%- user.username %>" disabled />
+                            </div>
+        
+                            <div class="form-group">
+                                <label>Tên đầy đủ</label>
+                                <input class="form-control" type="text" placeholder="Nhập tên đầy đủ của bạn" value="<%- user.full_name %>" />
+                            </div>
+        
+                            <div class="form-group">
+                                <label>Giới tính</label>
+                                <select class="form-control" value="<%- user.gender %>">
+                                    <option value="0">Nam</option>
+                                    <option value="1">Nữ</option>
+                                </select>
+                            </div>
+        
+                            <div class="form-group">
+                                <label>Ngày sinh</label>
+                                <input type="date" class="form-control" value="<%- user.date_of_birth %>" />
+                            </div>
+        
+                            <div class="form-group">
+                                <label>Địa chỉ email</label>
+                                <input class="form-control" type="email" placeholder="Nhập địa chỉ email của bạn" value="<%- user.email %>" />
+                            </div>
+        
+                            <div class="form-group">
+                                <label>Địa chỉ</label>
+                                <input class="form-control" type="text" placeholder="Nhập địa chỉ của bạn" value="<%- user.addrerss %>" />
+                            </div>
+        
+                            <div class="form-group">
+                                <label>Số điện thoại</label>
+                                <input class="form-control" type="text" placeholder="Nhập số điện thoại của bạn" value="<%- user.phone %>" />
+                            </div>
+
+                            <div class="form-group">
+                                <label>Mô tả ngắn về bạn</label>
+                                <textarea class="form-control" placeholder="Nhập mô tả ngắn về bạn"><%= user.bio %></textarea>
+                            </div>
+
+                            <button class="btn">Cập nhật thông tin</button>
+                        </div>
+
+                        <div class="col-md-3">
+                            <label>Ảnh đại diện (Avatar)</label>
+                            <img src="/images/tiendung.png" style="width: 100%; border-radius: 6px;" />
+                            <button class="btn btn-block mt-1">Thay đổi</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+
+<% include ../../partials/footer %>

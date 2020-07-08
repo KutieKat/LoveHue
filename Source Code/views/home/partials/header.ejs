@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    
+    <!-- Slick -->
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+    
+    <!-- Customed CSS -->
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/home.css">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/png" href="/images/favicon.png"/>
+    
+    <title><%= typeof page_title !== 'undefined' ? page_title : (settings['title'] + ' - ' + settings['slogan'])  %></title>
+  </head>
+
+  <body style="background-color: <%= typeof is_post !== 'undefined' && is_post === true ? '#F1F1F1' : '' %>">
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v3.2&appId=2320445328280950&autoLogAppEvents=1"></script>
+
+    <header class="main-header">
+      <div id="top" class="main-header__top-navigation">
+        <div class="container">
+          <div class="top-navigation__left">
+            <p class="left__text" data-toggle="modal" data-target="#aboutModal"><i class="fas fa-star left__icon"></i>&nbsp;&nbsp;Đồ án môn học Phát triển, vận hành, bảo trì phần mềm (SE109.J21.PMCL) - Nhóm 1</p>
+          </div>
+
+          <div class="top-navigation__right">
+              <form class="form-inline my-2 my-lg-0" method="get" action="/tim-kiem">
+                <input class="form-control mr-sm-2" type="text" placeholder="Nhập từ khóa cần tìm..." name="tu-khoa" aria-label="Search" autocomplete="off" required />
+                <button type="submit" class="search-button"><i class="fas fa-search"></i></button>
+              </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="main-header__banner">
+        <div class="container">
+          <h1><a href="/"><img src="/<%= typeof settings['logo_file_name'] !== 'undefined' ? settings['logo_file_name'] : 'images/logo.png' %>" alt="LoveHue Logo" class="banner__logo animated pulse infinite" /></a></h1>
+          <p class="banner__slogan"><%= typeof settings['slogan'] !== 'undefined' ? settings['slogan'] : '' %></p>
+        </div>
+      </div>
+
+      <div class="main-header__main-navigation">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="container pl-0 pr-0">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item <%= typeof is_home !== 'undefined' && is_home === true ? 'active' : '' %>">
+                  <a class="nav-link" href="/"><i class="fas fa-home"></i>&nbsp;&nbsp;Trang chủ</span></a>
+                </li>
+
+                <% typeof post_categories !== 'undefined' && post_categories.forEach(function(postCategory) { %>
+                  <li class="nav-item <%= typeof active_category !== 'undefined' && active_category === postCategory.seo_slug ? 'active' : '' %>">
+                    <a class="nav-link" href="/chuyen-muc/<%= postCategory.seo_slug %>"><%= postCategory.name %></a>
+                  </li>
+                <% }) %>
+              </ul>
+
+              <% if (typeof user !== 'undefined') { %>
+                <ul class="navbar-nav ml-auto">
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Tài khoản
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <%if (parseInt(user.role) === 1 || parseInt(user.role) === 2) { %>
+                        <a class="dropdown-item" href="/bang-dieu-khien">Bảng điều khiển</a>
+                        <div class="dropdown-divider"></div>
+                      <% } %>
+                      <a class="dropdown-item" href="/tai-khoan/dang-xuat">Đăng xuất</a>
+                    </div>
+                  </li>
+                </ul>
+              <% } %>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>

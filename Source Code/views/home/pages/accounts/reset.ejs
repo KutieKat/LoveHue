@@ -1,0 +1,39 @@
+<% include ../../partials/auth-header %>
+
+<main class="mt-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <form action="/tai-khoan/dat-lai-mat-khau" method="post" autocomplete="off">
+                    <header class="text-center">
+                        <h3 class="form-title">Đặt lại mật khẩu</h3>
+                        <p class="form-description">Đặt lại mật khẩu cho tài khoản của bạn</p>
+
+                        <% include messages %>
+                    </header>
+
+                    <div class="form-group">
+                        <label>Mật khẩu cũ</label>
+                        <input class="form-control" type="password" placeholder="Nhập mật khẩu cũ của bạn" name="old-password" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Mật khẩu mới</label>
+                        <input class="form-control" type="password" placeholder="Nhập mật khẩu mới của bạn" name="new_password" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Xác nhận mật khẩu mới</label>
+                        <input class="form-control" type="password" placeholder="Nhập lại mật khẩu mới của bạn" name="new_password_confirmation" />
+                    </div>
+
+                    <div class="form-group text-center">
+                        <button class="btn btn-block" type="submit">Đặt lại mật khẩu</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+
+<% include ../../partials/auth-footer %>

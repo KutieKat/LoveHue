@@ -1,0 +1,77 @@
+<div class="modal fade" id="showModal" tabindex="-1" role="dialog" aria-labelledby="showModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Xem thông tin về chuyên mục bài viết</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            
+            <div class="modal-body">
+                <form>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Mã chuyên mục</label>
+                                <input id="showModalId" class="form-control" type="text" placeholder="Mã của chuyên mục" disabled />
+                            </div>
+
+                            <div class="form-group">
+                                <label>Tên chuyên mục (*)</label>
+                                <input id="showModalName" class="form-control" type="text" placeholder="Tên của chuyên mục" disabled />
+                            </div>
+
+                            <div class="form-group">
+                                <label>SEO slug (*)</label>
+                                <input id="showModalSeoSlug" class="form-control" type="text" placeholder="SEO slug của chuyên mục" disabled />
+                            </div>
+
+                            <div class="form-group">
+                                <label>Trạng thái</label>
+                                <select id="showModalIsActive" class="form-control" disabled>
+                                    <option value="0">Chưa hiển thị</option>
+                                    <option value="1">Đã hiển thị</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Ngày tạo</label>
+                                <input id="showModalCreatedAt" class="form-control" type="text" placeholder="Ngày tạo của chuyên mục" disabled />
+                            </div>
+
+                            <div class="form-group">
+                                <label>Ngày cập nhật</label>
+                                <input id="showModalUpdatedAt" class="form-control" type="text" placeholder="Ngày cập nhật của chuyên mục" disabled />
+                            </div>
+
+                            <div class="form-group">
+                                <label>Hiển thị trên menu</label>
+                                <select id="showModalShowOnMenu" class="form-control" disabled>
+                                    <option value="0">Không hiển thị</option>
+                                    <option value="1">Có hiển thị</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Mô tả</label>
+                                <textarea id="showModalDescription" class="form-control" placeholder="Mô tả về chuyên mục" disabled></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text-right">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>

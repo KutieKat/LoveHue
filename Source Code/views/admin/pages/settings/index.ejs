@@ -1,0 +1,104 @@
+<% include ../../partials/header %>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <h4 class="card-title">Cài đặt chung</h4>
+                </div>
+            </div>
+
+            <div class="card-body">
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                    <h5 class="mb-0">Định danh</h5>
+                    <button id="btnUpdateSiteIdentity" class="btn btn-sm btn-primary">Sửa</button>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label>Logo</label>
+                            <div class="image-preview">
+                                <img id="settingsPageLogo" class="image-uploader__image" src="/images/image-not-found.jpg" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label>Favicon</label>
+                            <div class="image-preview">
+                                <img id="settingsPageFavicon" class="image-uploader__image" src="/images/image-not-found.jpg" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-8">
+                        <div class="form-group">
+                            <label>Banner</label>
+                            <div class="image-preview" style="width: 100%;">
+                                <img id="settingsPageBanner" class="image-uploader__image" src="/images/image-not-found.jpg" style="width: 100%; object-fit: contain; background-color: #E8E8E8;" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Tiêu đề site</label>
+                            <input id="settingsPageTitle" class="form-control" type="text" placeholder="Tiêu đề của site" disabled />
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Khẩu hiệu (Slogan) của site</label>
+                            <input id="settingsPageSlogan" class="form-control" type="text" placeholder="Khẩu hiệu (Slogan) của site" disabled />
+                        </div>
+                    </div>
+                </div>
+
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                    <h5 class="mb-0">Mạng xã hội</h5>
+                    <button id="btnUpdateSiteIdentity" class="btn btn-sm btn-primary">Sửa</button>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Facebook</label>
+                            <input id="settingsPageFacebookUrl" class="form-control" type="text" placeholder="Trang Facebook của site" disabled />
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Twitter</label>
+                            <input id="settingsPageTwitterUrl" class="form-control" type="text" placeholder="Trang Twitter của site" disabled />
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Instagram</label>
+                            <input id="settingsPageInstagramUrl" class="form-control" type="text" placeholder="Trang Instagram của site" disabled />
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Pinterest</label>
+                            <input id="settingsPagePinterestUrl" class="form-control" type="text" placeholder="Trang Pinterest của site" disabled />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<% include modals/edit %>
+
+<% include ../../partials/footer %>

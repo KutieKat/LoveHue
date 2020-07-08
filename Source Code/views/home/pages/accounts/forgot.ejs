@@ -1,0 +1,29 @@
+<% include ../../partials/auth-header %>
+
+<main class="mt-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <form action="/tai-khoan/quen-mat-khau" method="post" autocomplete="off">
+                    <header class="text-center">
+                        <h3 class="form-title">Thay đổi mật khẩu</h3>
+                        <p class="form-description">Nhập địa chỉ email mà bạn đã sử dụng khi đăng ký tài khoản, chúng tôi sẽ gửi cho bạn liên kết thay đổi mật khẩu qua địa chỉ email này</p>
+
+                        <% include messages %>
+                    </header>
+
+                    <div class="form-group">
+                        <label>Địa chỉ email</label>
+                        <input class="form-control" type="text" placeholder="Nhập địa chỉ email của bạn" name="email" required />
+                    </div>
+
+                    <div class="form-group text-center">
+                        <button class="btn btn-block" type="submit">Xác nhận</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+
+<% include ../../partials/auth-footer %>

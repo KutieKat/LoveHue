@@ -1,0 +1,106 @@
+<% include ../../partials/header %>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <h4 class="card-title">Danh sách các bài viết</h4>
+
+                    <div>
+                        <button class="btn btn-sm btn-primary btn-list-add"><i class="nc-icon nc-simple-add"></i>&nbsp;&nbsp;Thêm mới</button>
+                        <button class="btn btn-sm btn-primary btn-list-refresh"><i class="nc-icon nc-refresh-69"></i>&nbsp;&nbsp;Tải lại</button>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <label>Tìm kiếm theo từ khóa</label>
+                        <input id="txtKeyword" class="form-control" type="text" placeholder="Nhập từ khóa cần tìm kiếm..." />
+                    </div>
+
+                    <div class="col-md-2">
+                        <label>Số kết quả hiển thị</label>
+                        <select id="select-list-page-size" class="form-control">
+                            <% for(let i = 10; i <= 100; i+=10) { %>
+                                <option value="<%= i %>"><%= i %> kết quả / trang</option>
+                            <% } %>
+                        </select>
+                    </div>
+
+                    <div class="col-md-2">
+                        <label>Chuyên mục</label>
+                        <select id="select-list-category" class="form-control">
+                        </select>
+                    </div>
+
+                    <div class="col-md-2">
+                        <label>Loại bài viết</label>
+                        <select id="select-list-is-hot" class="form-control">
+                            <option value="-1">Tất cả</option>
+                            <option value="0">Không nổi bật</option>
+                            <option value="1">Nổi bật</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-2">
+                        <label>Trạng thái</label>
+                        <select id="select-list-is-active" class="form-control">
+                            <option value="-1">Tất cả</option>
+                            <option value="0">Chưa hiển thị</option>
+                            <option value="1">Đã hiển thị</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row" style="margin-top: 10px;">
+                    <div class="col-md-6">
+                        <div id="list-message"></div>
+                    </div>
+
+                    <div class="col-md-6 text-right">
+                    </div>
+                </div>
+            </div>
+        
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead class="text-primary">
+                            <!-- <th class="btn-list-sort-column" data-sort_field="_id">Mã bài viết <i class="nc-icon nc-sound-wave"></i></th> -->
+                            <th class="btn-list-sort-column" data-sort_field="name">Tiêu đề <i class="nc-icon nc-sound-wave"></i></th>
+                            <th class="btn-list-sort-column" data-sort_field="seo_slug">SEO Slug <i class="nc-icon nc-sound-wave"></i></th>
+                            <th class="btn-list-sort-column" data-sort_field="category">Chuyên mục <i class="nc-icon nc-sound-wave"></i></th>
+                            <th class="btn-list-sort-column" data-sort_field="createdAt">Ngày tạo <i class="nc-icon nc-sound-wave"></i></th>
+                            <th class="btn-list-sort-column" data-sort_field="updatedAt">Ngày cập nhật <i class="nc-icon nc-sound-wave"></i></th>
+                            <th class="btn-list-sort-column" data-sort_field="is_hot">Loại bài viết <i class="nc-icon nc-sound-wave"></i></th>
+                            <th class="btn-list-sort-column" data-sort_field="is_active">Trạng thái <i class="nc-icon nc-sound-wave"></i></th>
+                            <th style="min-width: 200px;">Thao tác</th>
+                        </thead>
+
+                        <tbody class="post-categories-data-table">
+                            <tr class="text-center">
+                                <td colspan="7">Chưa có dữ liệu</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div style="float: right;">
+    <div id="data-container"></div>
+    <div id="pagination-container"></div>
+</div>
+
+<div style="clear: both;"></div>
+
+<% include modals/show %>
+<% include modals/add %>
+<% include modals/edit %>
+<% include modals/delete %>
+<% include modals/error %>
+
+<% include ../../partials/footer %>

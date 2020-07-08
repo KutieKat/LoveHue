@@ -1,0 +1,239 @@
+.about-modal__member-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.about-modal span {
+    display: block;
+    margin: 0;
+}
+
+.about-modal__member-name {
+    font-weight: bold;
+    display: block;
+    margin-top: 8px;
+    margin-bottom: 0;
+
+}
+
+.about-modal__member-info {
+    opacity: 0.6;
+    font-size: 12px;
+}
+
+.modal-header {
+    padding: 12px !important;
+    align-items: center;
+}
+
+.modal-header button {
+    outline: none !important;
+}
+
+.modal-title {
+    font-size: 16px !important;
+}
+
+.modal-footer {
+    padding: 0 8px !important;
+}
+
+.table-responsive {
+    overflow: auto;
+}
+
+.form-control[type="text"],
+.form-control[type="password"],
+select.form-control { 
+    height: 36px !important;
+}
+
+thead th {
+    cursor: pointer;
+    user-select: none;
+}
+
+tbody tr:hover {
+    background-color: lightyellow;
+}
+
+table {
+    font-size: 13px;
+}
+
+.pagination {
+    display: inline-block;
+    padding-left: 0;
+    margin: 20px 0;
+    border-radius: 4px
+}
+
+.pagination>li {
+    display: inline
+}
+
+.pagination>li>a,
+.pagination>li>span {
+    position: relative;
+    float: left;
+    padding: 6px 12px;
+    margin-left: -1px;
+    line-height: 1.42857143;
+    color: #337ab7;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #ddd
+}
+
+.pagination>li:first-child>a,
+.pagination>li:first-child>span {
+    margin-left: 0;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px
+}
+
+.pagination>li:last-child>a,
+.pagination>li:last-child>span {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px
+}
+
+.pagination>li>a:focus,
+.pagination>li>a:hover,
+.pagination>li>span:focus,
+.pagination>li>span:hover {
+    color: #23527c;
+    background-color: #eee;
+    border-color: #ddd
+}
+
+.pagination>.active>a,
+.pagination>.active>a:focus,
+.pagination>.active>a:hover,
+.pagination>.active>span,
+.pagination>.active>span:focus,
+.pagination>.active>span:hover {
+    z-index: 2;
+    color: #fff;
+    cursor: default;
+    background-color: #34b5b8;
+    border-color: #34b5b8;
+}
+
+.pagination>.disabled>a,
+.pagination>.disabled>a:focus,
+.pagination>.disabled>a:hover,
+.pagination>.disabled>span,
+.pagination>.disabled>span:focus,
+.pagination>.disabled>span:hover {
+    color: #777;
+    cursor: not-allowed;
+    background-color: #fff;
+    border-color: #ddd
+}
+
+.pagination-lg>li>a,
+.pagination-lg>li>span {
+    padding: 10px 16px;
+    font-size: 18px
+}
+
+.pagination-lg>li:first-child>a,
+.pagination-lg>li:first-child>span {
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px
+}
+
+.pagination-lg>li:last-child>a,
+.pagination-lg>li:last-child>span {
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px
+}
+
+.pagination-sm>li>a,
+.pagination-sm>li>span {
+    padding: 5px 10px;
+    font-size: 12px
+}
+
+.pagination-sm>li:first-child>a,
+.pagination-sm>li:first-child>span {
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px
+}
+
+.pagination-sm>li:last-child>a,
+.pagination-sm>li:last-child>span {
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px
+}
+
+.form-group .form-control, .input-group .form-control {
+    padding: 0 10px;
+}
+
+.modal-lg {
+    max-width: 90%;
+}
+
+.form-group label {
+    font-weight: bold;
+    display: block;
+}
+
+.image-uploader {
+    border: 1px dashed lightgray;
+    border-radius: 6px;
+    padding: 6px;
+    display: inline-block;
+}
+
+.image-uploader__label {
+    font-weight: bold;
+    margin: 0;
+    display: inline-block;
+}
+
+.image-uploader__input {
+    display: none;
+}
+
+.image-uploader__image {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.image-preview {
+    border: 1px dashed lightgray;
+    border-radius: 6px;
+    padding: 6px;
+    display: inline-block;
+}
+
+.image-preview__image {
+    max-width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.image-uploader__delete-button {
+    display: inline-block;
+    width: 100%;
+    margin: 0;
+    margin-top: 6px;
+    display: none;
+}
+
+.card {
+    padding: 12px;
+}
+
+.fr-counter {
+    display: none !important;
+}

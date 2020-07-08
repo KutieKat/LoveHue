@@ -1,0 +1,86 @@
+<% include ../partials/header %>
+
+<main>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 pr-3">
+                    <section class="search-page-bar mb-4">
+                        <form method="get">
+                            <div class="input-group mb-2">
+                                <input type="text" class="form-control" placeholder="Nhập từ khóa cần tìm kiếm" aria-label="Từ khóa cần tìm kiếm" aria-describedby="basic-addon2" name="tu-khoa" value="<%= keyword %>">
+                                <div class="input-group-append">
+                                    <button type="submit" class="btn btn-outline-secondary" type="button"><i class="fas fa-search"></i></button>
+                                </div>
+                            </div>
+                            <!-- <p class="search-results-count">Tìm thấy tất cả <%= results_count %> kết quả cho từ khóa <strong><%= keyword %></strong></p> -->
+                        </form>
+                    </section>
+
+                    <section class="category-timeline-posts">
+                        <div class="category-timeline-posts__list"></div>
+                    </section>
+
+                    <div class="text-center">
+                        <button class="customed-btn btn-load-more" data-href="/tim-kiem?tu-khoa=<%= keyword %>">Bấm để xem thêm <i class="fas fa-chevron-circle-down"></i></button>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <section class="category-concerned-posts">
+                        <h3 class="section__header"><a href="#">Các bài viết mới nhất</a></h3>
+
+                        <% typeof current_posts !== 'undefined' && current_posts.forEach(function(currentPost) { %>
+                            <article class="category-concerned-post clearfix">
+                                <a href="/bai-viet/<%= currentPost['seo_slug'] %>" title="<%= currentPost['title'] %>"><img src="/<%= currentPost['thumbnail_image_file_name'] %>" class="category-concerned-post__thumbnail" /></a>
+                                <div class="category-concerned-post__details">
+                                    <h3 class="category-concerned-post__title"><a href="/bai-viet/<%= currentPost['seo_slug'] %>"><%= currentPost['title'] %></a></h3>
+                                    <p class="category-concerned-post__meta">
+                                        <span class="category-concerned-post__posted-time"><i class="far fa-clock"></i>&nbsp;&nbsp;<%= getRelativeTimeString(currentPost['createdAt']) %></span>
+                                        <span class="category-concerned-post__views"><i class="far fa-eye"></i>&nbsp;&nbsp;<%= currentPost['views'] %></span>
+                                    </p>
+                                </div>
+                            </article>
+                        <% }) %>
+                    </section>
+
+                    <section class="category-concerned-posts mt-4">
+                        <h3 class="section__header mb-3"><a href="/doc-nhieu">Các bài viết nổi bật</a></h3>
+
+                        <% typeof featured_posts !== 'undefined' && featured_posts.forEach(function(currentPost) { %>
+                            <article class="category-concerned-post clearfix">
+                                <a href="/bai-viet/<%= currentPost['seo_slug'] %>" title="<%= currentPost['title'] %>"><img src="/<%= currentPost['thumbnail_image_file_name'] %>" class="category-concerned-post__thumbnail" /></a>
+                                <div class="category-concerned-post__details">
+                                    <h3 class="category-concerned-post__title"><a href="/bai-viet/<%= currentPost['seo_slug'] %>"><%= currentPost['title'] %></a></h3>
+                                    <p class="category-concerned-post__meta">
+                                        <span class="category-concerned-post__posted-time"><i class="far fa-clock"></i>&nbsp;&nbsp;<%= getRelativeTimeString(currentPost['createdAt']) %></span>
+                                        <span class="category-concerned-post__views"><i class="far fa-eye"></i>&nbsp;&nbsp;<%= currentPost['views'] %></span>
+                                    </p>
+                                </div>
+                            </article>
+                        <% }) %>
+                    </section>
+
+                    <section class="category-concerned-posts mt-4">
+                        <h3 class="section__header mb-3"><a href="/doc-nhieu">Các bài viết được đọc nhiều</a></h3>
+
+                        <% typeof most_read_posts !== 'undefined' && most_read_posts.forEach(function(currentPost) { %>
+                            <article class="category-concerned-post clearfix">
+                                <a href="/bai-viet/<%= currentPost['seo_slug'] %>" title="<%= currentPost['title'] %>"><img src="/<%= currentPost['thumbnail_image_file_name'] %>" class="category-concerned-post__thumbnail" /></a>
+                                <div class="category-concerned-post__details">
+                                    <h3 class="category-concerned-post__title"><a href="/bai-viet/<%= currentPost['seo_slug'] %>"><%= currentPost['title'] %></a></h3>
+                                    <p class="category-concerned-post__meta">
+                                        <span class="category-concerned-post__posted-time"><i class="far fa-clock"></i>&nbsp;&nbsp;<%= getRelativeTimeString(currentPost['createdAt']) %></span>
+                                        <span class="category-concerned-post__views"><i class="far fa-eye"></i>&nbsp;&nbsp;<%= currentPost['views'] %></span>
+                                    </p>
+                                </div>
+                            </article>
+                        <% }) %>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<% include ../partials/footer %>

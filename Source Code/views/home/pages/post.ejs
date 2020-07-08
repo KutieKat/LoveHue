@@ -1,0 +1,164 @@
+<% include ../partials/header %>
+
+<main>
+    <div class="container post__container">
+        <div class="row">
+            <div class="col-md-8 pr-3">
+                <header class="post__header">
+                    <a href="/chuyen-muc/<%= post['post_category']['seo_slug'] %>" class="post__category"><%= post['post_category']['name'] %></a>
+                    <h3 class="post__title"><%= post.title %></h3>
+                    <div class="post__meta">
+                            <span class="post__author"><%= post['author']['full_name'] ? post['author']['full_name'] : post['author']['username']  %>,</span>
+                            <span class="post__source">Theo <%= post['source'] %></span>
+                            <span class="post__posted-time" style="margin-left: 6px;"><i class="far fa-clock"></i> <%= getRelativeTimeString(post['createdAt']) %></span>
+                        </div>
+                    <div class="post__main-sharing">
+                        <div class="fb-like" data-href="https://www.facebook.com/sharer/sharer.php?<%= urlToShare %>" data-layout="button" data-action="like" data-size="small" data-show-faces="true" data-share="true" style="margin-right: 6px;"></div>
+                        <div class="fb-save" data-uri="https://www.facebook.com/sharer/sharer.php?<%= urlToShare %>" data-size="small"></div>
+                    </div>
+                </header>
+
+                <div class="post__body">
+                    <div class="post__buttons">
+                        <span class="post__button" data-toggle="tooltip" data-placement="left" title="Trở về trang chủ"><a href="/"><i class="fas fa-home"></i></a></span>
+                        <span class="post__button" data-toggle="tooltip" data-placement="left" title="Bình luận về bài viết" style="background-color: #94A2AF;"><a href="#disqus_thread"><i class="far fa-comment-dots"></i></a></span>
+                        <span id="btnFacebookShare" class="post__button" data-toggle="tooltip" data-placement="left" title="Chia sẻ bài viết lên Facebook" style="background-color: #395299;"><a href="#"><i class="fab fa-facebook-f"></i></span>
+                    </div>
+                    <p class="post__summary"><%= post['summary'] %></p>
+
+                    <% if (typeof title_related_posts !== 'undefined' && title_related_posts.length > 0) { %>
+                        <div class="post__title-related-posts">
+                            <ul class="post__title-related-posts__list">
+                                <% title_related_posts.forEach(function(post) { %>
+                                    <li class="post__title-related-posts__list-item">
+                                        <a href="/bai-viet/<%= post['seo_slug'] %>"><%= post['title'] %></a>
+                                    </li>
+                                <% }) %>
+                            </ul>
+                        </div>
+                    <% } %>
+
+                    <div class="post_content"><%- post['content'] %></div>
+                    <% if (typeof next_post !== 'undefined') { %>
+                        <div class="post__next-post">
+                            <a href="<%= next_post['seo_slug'] %>"><%= next_post['title'] %></a>
+                        </div>
+                    <% } %>
+                </div>
+
+                <footer class="post__footer pl-4">
+                    <div class="post__sub-sharing">
+                        <div class="fb-like" data-href="https://www.facebook.com/sharer/sharer.php?<%= urlToShare %>" data-layout="button" data-action="like" data-size="small" data-show-faces="true" data-share="true" style="margin-right: 6px;"></div>
+                        <div class="fb-save" data-uri="https://www.facebook.com/sharer/sharer.php?<%= urlToShare %>" data-size="small"></div>
+                    </div>
+                    <div class="post__tags">
+                        <% post['tags'].forEach(function(tag) { %>
+                            <a href="#" class="post__tag">#<%= tag %></a>
+                        <% }) %>
+                    </div>
+                    <div class="post__comment-box">
+                        <div id="disqus_thread"></div>
+                        <script>
+                        /**
+                        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+                        /*
+                        var disqus_config = function () {
+                        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+                        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                        };
+                        */
+                        (function() { // DON'T EDIT BELOW THIS LINE
+                        var d = document, s = d.createElement('script');
+                        s.src = 'https://lovehue.disqus.com/embed.js';
+                        s.setAttribute('data-timestamp', +new Date());
+                        (d.head || d.body).appendChild(s);
+                        })();
+                        </script>
+                        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                    </div>
+
+                    <section class="category-timeline-posts mt-4">
+                        <div class="section__header-container">
+                            <h3 class="section__header mb-3"><a href="#">Bài viết cùng chuyên mục</a></h3>
+                            <!-- <div class="section__header-datepicker">
+                                <label class="mb-0 mr-2">Xem theo ngày</label>
+                                <select class="form-control">
+                                    <option>01</option>
+                                </select>
+                                <select class="form-control">
+                                    <option>12</option>
+                                </select>
+                                <select class="form-control">
+                                    <option>2019</option>
+                                </select>
+                                <button>Xem</button>
+                            </div> -->
+                        </div>
+
+                        <div class="category-timeline-posts__list"></div>
+                    </section>
+
+                    <div class="text-center">
+                        <button class="customed-btn btn-load-more" data-href="/bai-viet/<%= post['seo_slug'] %>">Bấm để xem thêm <i class="fas fa-chevron-circle-down"></i></button>
+                    </div>
+                </footer>
+            </div>
+
+            <div class="col-md-4">
+                <section class="category-concerned-posts">
+                    <h3 class="section__header"><a href="#">Các bài viết mới nhất</a></h3>
+
+                    <% typeof current_posts !== 'undefined' && current_posts.forEach(function(currentPost) { %>
+                        <article class="category-concerned-post clearfix">
+                            <a href="/bai-viet/<%= currentPost['seo_slug'] %>" title="<%= currentPost['title'] %>"><img src="/<%= currentPost['thumbnail_image_file_name'] %>" class="category-concerned-post__thumbnail" /></a>
+                            <div class="category-concerned-post__details">
+                                <h3 class="category-concerned-post__title"><a href="/bai-viet/<%= currentPost['seo_slug'] %>"><%= currentPost['title'] %></a></h3>
+                                <p class="category-concerned-post__meta">
+                                    <span class="category-concerned-post__posted-time"><i class="far fa-clock"></i>&nbsp;&nbsp;<%= getRelativeTimeString(currentPost['createdAt']) %></span>
+                                    <span class="category-concerned-post__views"><i class="far fa-eye"></i>&nbsp;&nbsp;<%= currentPost['views'] %></span>
+                                </p>
+                            </div>
+                        </article>
+                    <% }) %>
+                </section>
+
+                <section class="category-concerned-posts mt-4">
+                    <h3 class="section__header"><a href="#">Các bài viết nổi bật</a></h3>
+
+                    <% typeof featured_posts !== 'undefined' && featured_posts.forEach(function(currentPost) { %>
+                        <article class="category-concerned-post clearfix">
+                            <a href="/bai-viet/<%= currentPost['seo_slug'] %>" title="<%= currentPost['title'] %>"><img src="/<%= currentPost['thumbnail_image_file_name'] %>" class="category-concerned-post__thumbnail" /></a>
+                            <div class="category-concerned-post__details">
+                                <h3 class="category-concerned-post__title"><a href="/bai-viet/<%= currentPost['seo_slug'] %>"><%= currentPost['title'] %></a></h3>
+                                <p class="category-concerned-post__meta">
+                                    <span class="category-concerned-post__posted-time"><i class="far fa-clock"></i>&nbsp;&nbsp;<%= getRelativeTimeString(currentPost['createdAt']) %></span>
+                                    <span class="category-concerned-post__views"><i class="far fa-eye"></i>&nbsp;&nbsp;<%= currentPost['views'] %></span>
+                                </p>
+                            </div>
+                        </article>
+                    <% }) %>
+                </section>
+
+                <section class="category-concerned-posts mt-4">
+                    <h3 class="section__header"><a href="#">Các bài viết được đọc nhiều</a></h3>
+
+                    <% typeof most_read_posts !== 'undefined' && most_read_posts.forEach(function(currentPost) { %>
+                        <article class="category-concerned-post clearfix">
+                            <a href="/bai-viet/<%= currentPost['seo_slug'] %>" title="<%= currentPost['title'] %>"><img src="/<%= currentPost['thumbnail_image_file_name'] %>" class="category-concerned-post__thumbnail" /></a>
+                            <div class="category-concerned-post__details">
+                                <h3 class="category-concerned-post__title"><a href="/bai-viet/<%= currentPost['seo_slug'] %>"><%= currentPost['title'] %></a></h3>
+                                <p class="category-concerned-post__meta">
+                                    <span class="category-concerned-post__posted-time"><i class="far fa-clock"></i>&nbsp;&nbsp;<%= getRelativeTimeString(currentPost['createdAt']) %></span>
+                                    <span class="category-concerned-post__views"><i class="far fa-eye"></i>&nbsp;&nbsp;<%= currentPost['views'] %></span>
+                                </p>
+                            </div>
+                        </article>
+                    <% }) %>
+                </section>
+            </div>
+        </div>
+    </div>
+</main>
+
+<% include ../partials/footer %>

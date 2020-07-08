@@ -1,0 +1,46 @@
+{
+  "name": "lovehue",
+  "version": "1.0.0",
+  "description": "Đồ án môn học Phát triển, vận hành, bảo trì phần mềm (SE109.J21.PMCL)",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.3",
+    "compression": "^1.7.4",
+    "connect-flash": "^0.1.1",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.2",
+    "express-messages": "^1.0.1",
+    "express-minify-html": "^0.12.0",
+    "express-session": "^1.16.0",
+    "express-validator": "^5.3.1",
+    "gulp-autoprefixer": "^6.1.0",
+    "gulp-clean": "^0.4.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-notify": "^3.2.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-uglify": "^3.0.2",
+    "md5": "^2.2.1",
+    "moment": "^2.24.0",
+    "mongoose": "^5.4.22",
+    "mongoose-paginate": "^5.0.3",
+    "morgan": "^1.9.1",
+    "multer": "^1.4.1",
+    "nodemon": "^1.18.10",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "sitemap": "^2.1.0",
+    "wysiwyg-editor-node-sdk": "^2.3.4"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.1"
+  }
+}

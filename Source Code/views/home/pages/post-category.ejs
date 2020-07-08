@@ -1,0 +1,101 @@
+<% include ../partials/header %>
+
+<main>
+    <section class="top-highlighted-posts">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <section class="featured-posts">
+                        <h3 class="section__header"><a href="/moi-nhat">Bài viết mới nhất</a></h3>
+                        <div class="section__body featured-posts__list">
+                            <% typeof current_posts !== 'undefined' && current_posts.forEach(function(currentPost) { %>
+                                <div class="featured-post">
+                                    <a href="/bai-viet/<%= currentPost['seo_slug'] %>" title="<%= currentPost['title'] %>"><img src="/<%= currentPost['thumbnail_image_file_name'] %>" class="featured-post__image" alt="<%= currentPost['title'] %>" /></a>
+                                    <div class="featured-post__details">
+                                        <a href="/chuyen-muc/<%= currentPost['post_category'] && currentPost['post_category']['seo_slug'] %>" class="featured-post__category"><%= currentPost['post_category'] && currentPost['post_category']['name'] %></a>
+                                        <h4 class="featured-post__title"><a href="/bai-viet/<%= currentPost['seo_slug'] %>"><%= currentPost['title'] %></a></h4>
+                                        <div class="featured-post__posted-time"><i class="far fa-clock"></i>&nbsp;&nbsp;<%= getRelativeTimeString(currentPost['createdAt']) %></div>
+                                    </div>
+                                </div>
+                            <% }) %>
+                        </div>
+                    </section>
+                </div>
+
+                <div class="col-md-3">
+                    <section class="featured-posts">
+                        <h3 class="section__header"><a href="/noi-bat">Bài viết nổi bật</a></h3>
+                        <div class="featured-posts__list">
+                            <% typeof featured_posts !== 'undefined' && featured_posts.forEach(function(featuredPost) { %>
+                                <div class="featured-post--small">
+                                    <a href="/bai-viet/<%= featuredPost['seo_slug'] %>" title="<%= featuredPost['title'] %>"><img src="/<%= featuredPost['thumbnail_image_file_name'] %>" class="featured-post__image--small" alt="<%= featuredPost['title'] %>" /></a>
+                                    <div class="featured-post__details">
+                                        <a href="/chuyen-muc/<%= featuredPost['post_category'] && featuredPost['post_category']['seo_slug'] %>" class="featured-post__category--small"><%= featuredPost['post_category'] && featuredPost['post_category']['name'] %></a>
+                                        <h4 class="featured-post__title--small"><a href="/bai-viet/<%= featuredPost['seo_slug'] %>"><%= featuredPost['title'] %></a></h4>
+                                        <div class="featured-post__posted-time--small"><i class="far fa-clock"></i>&nbsp;&nbsp;<%= getRelativeTimeString(featuredPost['createdAt']) %></div>
+                                    </div>
+                                </div>
+                            <% }) %>
+                        </div>
+                    </section>
+                </div>
+
+                <div class="col-md-3">
+                    <section class="most-read-posts">
+                        <h3 class="section__header"><a href="/doc-nhieu">Đọc nhiều</a></h3>
+                        <div class="featured-posts__list">
+                            <% typeof most_read_posts !== 'undefined' && most_read_posts.forEach(function(mostReadPost) { %>
+                                <div class="featured-post--small">
+                                    <a href="/bai-viet/<%= mostReadPost['seo_slug'] %>" title="<%= mostReadPost['title'] %>"><img src="/<%= mostReadPost['thumbnail_image_file_name'] %>" class="featured-post__image--small" alt="<%= mostReadPost['title'] %>" /></a>
+                                    <div class="featured-post__details">
+                                        <a href="/chuyen-muc/<%= mostReadPost['post_category'] && mostReadPost['post_category']['seo_slug'] %>" class="featured-post__category--small"><%= mostReadPost['post_category'] && mostReadPost['post_category']['name'] %></a>
+                                        <h4 class="featured-post__title--small"><a href="/bai-viet/<%= mostReadPost['seo_slug'] %>"><%= mostReadPost['title'] %></a></h4>
+                                        <div class="featured-post__posted-time--small"><i class="far fa-clock"></i>&nbsp;&nbsp;<%= getRelativeTimeString(mostReadPost['createdAt']) %></div>
+                                    </div>
+                                </div>
+                            <% }) %>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </section><!-- top-highlighted-posts -->
+
+    <section class="mt-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 pr-3">
+                    <section class="category-timeline-posts">
+                        <h3 class="section__header"><a href="#">Tất cả các bài viết</a></h3>
+                        <div class="category-timeline-posts__list"></div>
+                    </section>
+
+                    <div class="text-center">
+                        <button class="customed-btn btn-load-more" data-href="/chuyen-muc/ajaxloadmore/<%= active_category_id %>">Bấm để xem thêm <i class="fas fa-chevron-circle-down"></i></button>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <section class="category-concerned-posts">
+                        <h3 class="section__header"><a href="#">Bạn có thể quan tâm</a></h3>
+
+                        <% typeof concerned_posts !== 'undefined' && concerned_posts.forEach(function(concernedPost) { %>
+                            <article class="category-concerned-post clearfix">
+                                <a href="/bai-viet/<%= concernedPost['seo_slug'] %>" title="<%= concernedPost['title'] %>"><img src="/<%= concernedPost['thumbnail_image_file_name'] %>" class="category-concerned-post__thumbnail" /></a>
+                                <div class="category-concerned-post__details">
+                                    <h3 class="category-concerned-post__title"><a href="/bai-viet/<%= concernedPost['seo_slug'] %>"><%= concernedPost['title'] %></a></h3>
+                                    <p class="category-concerned-post__meta">
+                                        <span class="category-concerned-post__posted-time"><i class="far fa-clock"></i>&nbsp;&nbsp;<%= getRelativeTimeString(concernedPost['createdAt']) %></span>
+                                        <span class="category-concerned-post__views"><i class="far fa-eye"></i>&nbsp;&nbsp;<%= concernedPost['views'] %></span>
+                                    </p>
+                                </div>
+                            </article>
+                        <% }) %>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<% include ../partials/footer %>
